@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Replicaset
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    tier: front-end
+spec:
+  replicas: 3
+  selectors:
+  matchlabels:
+    tier: frontend
+  templet:
+    metadata:
+    labels:
+      tier: front-end
+      spec:
+        containers:
+         -  name: ngnix-container
+            image: ngnix
+
+
+
+      #kubectl create -f pod-defination.yml
+      
